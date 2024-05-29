@@ -1,5 +1,5 @@
 # RiccioWare
-Simple System of Encryption and Decryption file
+Simple System of Encryption and Decryption file, please notice that the repo is only for educational purposes, you can't use it for illegal action.
 
 ## Installation
 1. Prerequisites
