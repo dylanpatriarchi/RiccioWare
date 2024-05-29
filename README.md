@@ -36,6 +36,12 @@ if (strcmp(file->d_name, "prova") == 0)
 ```
 With your target folder
 
+### optional
+
+Replace the encryption keys. You can find that on 
+- main.c : row 75
+- decrypt.c : row 84
+
 3. Clone the repo
 ```bash
 git clone https://github.com/your_username/riccioware.git

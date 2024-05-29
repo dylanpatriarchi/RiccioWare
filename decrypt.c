@@ -10,7 +10,7 @@
 void decrypt_file(const char *file_path, const unsigned char *aes_key) {
     FILE *fp = fopen(file_path, "r+");
     if (fp == NULL) {
-        printf("Impossibile aprire il file %s per la lettura/scrittura\n", file_path);
+        printf("Error: cant read %s \n", file_path);
         return;
     }
 
@@ -20,14 +20,14 @@ void decrypt_file(const char *file_path, const unsigned char *aes_key) {
 
     unsigned char *ciphertext = (unsigned char *)malloc(file_size);
     if (ciphertext == NULL) {
-        printf("Errore durante l'allocazione di memoria\n");
+        printf("Error memory allocation\n");
         fclose(fp);
         return;
     }
 
     unsigned char *plaintext = (unsigned char *)malloc(file_size);
     if (plaintext == NULL) {
-        printf("Errore durante l'allocazione di memoria\n");
+        printf("Error memory allocation\n");
         fclose(fp);
         free(ciphertext);
         return;
@@ -79,7 +79,7 @@ int main() {
                             char file_path[1024];
                             snprintf(file_path, sizeof(file_path), "%s/%s", subdir_path, subfile->d_name);
 
-                            printf("Decriptando il contenuto di %s:\n", file_path);
+                            printf("Unlocking %s:\n", file_path);
                             
                             unsigned char aes_key[] = "fiolisostancobuonanotte";
                             
